@@ -1,6 +1,6 @@
 # AutoBanknet
 
-Educational project for scool (ISN) - Service de banque en ligne
+Educational project for school (ISN) - Service de banque en ligne
 
 ## Présentation
 
