@@ -9,3 +9,14 @@ Utiliser un serveur qui met en relation une base de données, un site web et un 
 
 
 ## Cahier des charges
+
+[à compléter]
+
+
+
+## Cartes Euristiques
+### Liaison des différents éléments
+![alt text](https://github.com/Elyox/BankAutobahn/blob/master/misc/elements.png)
+
+### Les facteurs liés aux comptes
+![alt text](https://github.com/Elyox/BankAutobahn/blob/master/misc/compte.png)
