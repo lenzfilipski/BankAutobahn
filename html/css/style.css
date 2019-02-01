@@ -1,0 +1,143 @@
+
+/***** General *****/
+
+* {
+
+  /*--- Color scheme. This is the light theme ---*/
+  /*- Color palette from : https://flatuicolors.com/palette/se */
+  /* using the material design color system
+  https://material.io/design/color/the-color-system.html */
+  --primary-color: #575fcf;
+  --primary-variant-color: #3c40c6;
+  --secondary-color: #ffdd59;
+  --secondary-variant-color: #ffd32a;
+  --background-color: #d2dae2;
+  --surface-color: #d2dae2;
+  /* --error-color: #b00020; */
+  --on-primary-color: #d2dae2;
+  --on-secondary-color: #1e272e;
+  --on-background-color: #1e272e;
+  --on-surface-color: #1e272e;
+  /* --on-error-color: #d2dae2; */
+
+
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 200vh;
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
+
+  overflow: hidden;
+}
+
+
+
+/***** navbar *****/
+.navbar {
+  background-color: var(--primary-color);
+}
+
+.navbar-brand {
+  color: var(--on-primary-color);
+}
+
+
+/***** Header  *****/
+
+.header {
+  position: relative;
+  background-color: var(--primary-color);
+  height: 300px;
+  color: var(--on-primary-color);
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  color: var(--on-primary-color);
+  font-size: 40px;
+}
+
+
+
+
+/***** Cards *****/
+.card {
+  color: var(--on-surface-color);
+  background-color: var(--surface-color);
+}
+
+
+
+
+
+
+/***** Light Mode Switch *****/
+
+#lightSwitch {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--secondary-color);
+  height: 30px;
+  width: 30px;
+  border-radius: 30%;
+
+  z-index: 9999;
+}
+#lightSwitch label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: var(--on-secondary-variant-color);
+  text-align: center;
+}
+
+input#liSwi {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+input#liSwi:checked ~ *, input#liSwi:checked ~ * *, input#liSwi:checked ~ * * *, input#liSwi:checked ~ * * * *, input#liSwi:checked ~ * * * * * {
+
+  /*--- Color scheme. This is the dark theme ---*/
+  --primary-color: #575fcf;
+  --primary-variant-color: #3c40c6;
+  --secondary-color: #ffdd59;
+  --secondary-variant-color: #ffd32a;
+  --background-color: #1e272e;
+  --surface-color: #485460;
+  /* --error-color: #b00020; */
+  --on-primary-color: #1e272e;
+  --on-secondary-color: #1e272e;
+  --on-background-color: #d2dae2;
+  --on-surface-color: #d2dae2;
+  /* --on-error-color: #d2dae2; */
+
+
+
+}
