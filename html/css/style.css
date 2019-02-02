@@ -9,24 +9,24 @@
   https://material.io/design/color/the-color-system.html */
   --primary-color: #575fcf;
   --primary-variant-color: #3c40c6;
-  --secondary-color: #ffdd59;
-  --secondary-variant-color: #ffd32a;
-  --background-color: #d2dae2;
-  --surface-color: #d2dae2;
+  --secondary-color: #f1c40f;
+  --secondary-variant-color: #e67e22;
+  --background-color: #eee;
+  --surface-color: #eee;
   /* --error-color: #b00020; */
-  --on-primary-color: #d2dae2;
+  --on-primary-color: #eee;
   --on-secondary-color: #1e272e;
   --on-background-color: #1e272e;
   --on-surface-color: #1e272e;
-  /* --on-error-color: #d2dae2; */
+  /* --on-error-color: #eee; */
 
 
 
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 
 
 }
@@ -34,8 +34,17 @@
 body {
   margin: 0;
   padding: 0;
-  height: 200vh;
+  min-height: 200vh;
 }
+
+a {
+  color: var(--secondary-color);
+}
+a:hover {
+  color: var(--secondary-variant-color);
+}
+
+
 
 .main {
   margin: 0;
@@ -54,8 +63,13 @@ body {
   background-color: var(--primary-color);
 }
 
-.navbar-brand {
+.navbar-brand, .navbar i {
   color: var(--on-primary-color);
+}
+
+.active, .active:hover {
+  color: var(--on-primary-color);
+  cursor: default;
 }
 
 
@@ -102,8 +116,7 @@ body {
   height: 30px;
   width: 30px;
   border-radius: 30%;
-
-  z-index: 9999;
+  z-index: 1030;
 }
 #lightSwitch label {
   position: absolute;
@@ -112,7 +125,7 @@ body {
   margin-right: -50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
-  color: var(--on-secondary-variant-color);
+  color: var(--on-secondary-color);
   text-align: center;
 }
 
@@ -127,16 +140,16 @@ input#liSwi:checked ~ *, input#liSwi:checked ~ * *, input#liSwi:checked ~ * * *,
   /*--- Color scheme. This is the dark theme ---*/
   --primary-color: #575fcf;
   --primary-variant-color: #3c40c6;
-  --secondary-color: #ffdd59;
-  --secondary-variant-color: #ffd32a;
+  --secondary-color: #f1c40f;
+  --secondary-variant-color: #e67e22;
   --background-color: #1e272e;
   --surface-color: #485460;
   /* --error-color: #b00020; */
   --on-primary-color: #1e272e;
   --on-secondary-color: #1e272e;
-  --on-background-color: #d2dae2;
-  --on-surface-color: #d2dae2;
-  /* --on-error-color: #d2dae2; */
+  --on-background-color: #eee;
+  --on-surface-color: #eee;
+  /* --on-error-color: #eee; */
 
 
 
