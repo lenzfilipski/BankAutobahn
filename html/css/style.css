@@ -80,6 +80,7 @@ a:hover {
   background-color: var(--primary-color);
   height: 300px;
   color: var(--on-primary-color);
+  box-shadow: 0 -0.325rem 0.25rem rgba(0, 0, 0, 0.075) inset;
 }
 
 .title {
@@ -90,6 +91,20 @@ a:hover {
   transform: translate(-50%, -50%);
   color: var(--on-primary-color);
   font-size: 40px;
+  text-align: center;
+  letter-spacing: normal;
+
+  animation: homeTitle 5s;
+}
+
+/*--- Title animation ---*/
+-webkit-@keyframes homeTitle {
+  0% { letter-spacing: 30px; opacity: 0;}
+  100% { letter-spacing: normal; opacity: 1;}
+}
+@keyframes homeTitle {
+  0% { letter-spacing: 30px; opacity: 0;}
+  100% { letter-spacing: normal; opacity: 1;}
 }
 
 
