@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl("http://lenz.filipski.fr:8080/html/index.html");
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
