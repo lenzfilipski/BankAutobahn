@@ -22,28 +22,27 @@
     <!-- The page to display must be placed here for the light/dark theme switch to work -->
     <div class="main">
 
-      <div class="navbar navbar-expand-sm fixed-top shadow-sm">
-        <a class="navbar-brand active" tabindex="#">
-          <img src="http://lorempixel.com/output/cats-q-c-640-640-3.jpg" height="30" width="30" class="d-inline-block align-top" alt="Brand logo">
-          BankAutobahn
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="navbar-nav">
-            <a tabindex="#" class="navbar-item nav-link active">Home <span class="sr-only">(current)</span></a>
-            <a href="compte.html" class="nav-item nav-link">Compte</a>
-            <a href="compte.html" class="nav-item nav-link">Prêts</a>
-            <a href="compte.html" class="nav-item nav-link">Virements</a>
-
+      <div class="navbar navbar-expand-md fixed-top shadow-sm">
+            <a class="navbar-brand active" tabindex="#">
+              <img src="http://lorempixel.com/output/cats-q-c-640-640-3.jpg" height="30" width="30" class="d-inline-block align-top" alt="Brand logo">
+              BankAutobahn
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+              <a tabindex="#" class="navbar-item nav-link active">Home <span class="sr-only">(current)</span></a>
+              <a href="compte.html" class="nav-item nav-link">Compte</a>
+              <a href="informations.html" class="nav-item nav-link">Informaions</a>
+              <a href="telechargements.html" class="nav-item nav-link">Téléchargements</a>
+            </div>
+            <button type="button" class="btn btn-secondary ml-auto" data-toggle="modal" data-target="#loginModal">Se connecter</button>
           </div>
         </div>
-      </div>
 
       <div class="container-fluid header mb-4 mt-5">
         <div class="title">Bienvenue dans la<br>BankAutobahn</div>
-        <br>lollllllle
       </div>
 
       <div class="container mb-4">
@@ -87,6 +86,38 @@
         </div>
       </div>
 
+
+
+      <!-- Conection modal box -->
+      <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Se connecter</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="" action="index.html" method="post">
+                <div class="form-group">
+                  <label for="accountId">ID de compte</label>
+                  <input type="number" class="form-control" maxlength="10" id="accountId" required>
+                </div>
+                <div class="form-group">
+                  <label for="accountPassword">Mot de passe</label>
+                  <input type="password" class="form-control" id="accountPassword" required>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="accountStayConnected">
+                  <label class="form-check-label" for="accountStayConnected">Rester connecté</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

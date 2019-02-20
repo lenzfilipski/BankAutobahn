@@ -70,19 +70,22 @@ a:hover {
 
 
 
-/***** navbar *****/
+/***** Navbar *****/
 .navbar {
   background-color: var(--primary-color);
 }
-
 .navbar-brand, .navbar i {
   color: var(--on-primary-color);
 }
-
 .active, .active:hover {
   color: var(--on-primary-color);
   cursor: default;
 }
+.navbar-brand img{
+  border-radius: 30%
+}
+
+
 
 
 /***** Header  *****/
@@ -90,12 +93,11 @@ a:hover {
 .header {
   position: relative;
   background-color: var(--primary-color);
-  height: 300px;
+  height: 400px;
   color: var(--on-primary-color);
   box-shadow: 0 -0.325rem 0.25rem rgba(0, 0, 0, 0.075) inset;
   overflow: hidden;
 }
-
 .title {
   position: absolute;
   top: 50%;
@@ -107,10 +109,10 @@ a:hover {
   font-size: 40px;
   text-align: center;
   letter-spacing: normal;
+  z-index: 3;
 
   animation: homeTitle 5s;
 }
-
 /*--- Title animation ---*/
 -webkit-@keyframes homeTitle {
   0% { letter-spacing: 30px; opacity: 0;}
@@ -119,6 +121,20 @@ a:hover {
 @keyframes homeTitle {
   0% { letter-spacing: 30px; opacity: 0;}
   100% { letter-spacing: normal; opacity: 1;}
+}
+/*-- Caroussel ---*/
+.carousel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  filter: blur(4px) brightness(0.75);
+}
+.carousel img {
+  height: 100%;
+  width: 100%;
 }
 
 
