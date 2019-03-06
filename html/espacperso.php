@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -9,7 +10,7 @@
 
     <!-- <link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css"> -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>BankAutobahn</title>
+    <title>BankAutobahn - Espace personnel</title>
   </head>
   <body>
 
@@ -23,7 +24,7 @@
     <div class="main">
 
       <div class="navbar navbar-expand-sm fixed-top shadow-sm">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img src="http://lorempixel.com/output/cats-q-c-640-640-3.jpg" height="30" width="30" class="d-inline-block align-top" alt="Brand logo">
           BankAutobahn
         </a>
@@ -32,18 +33,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-            <a href="index.html" class="navbar-item nav-link">Home <span class="sr-only">(current)</span></a>
-            <a tabindex="#" class="nav-item nav-link active">Compte</a>
-            <a href="compte.html" class="nav-item nav-link">Prêts</a>
-            <a href="compte.html" class="nav-item nav-link">Virements</a>
+            <a href="index.php" class="navbar-item nav-link">Home <span class="sr-only">(current)</span></a>
+            <a tabindex="#" class="nav-item nav-link active">Espace personnel</a>
+            <a href="informations.php" class="nav-item nav-link">Informaions</a>
+            <a href="telechargements.php" class="nav-item nav-link">Téléchargements</a>
 
           </div>
         </div>
       </div>
 
-      <div class="container-fluid header mb-4 mt-5">
-        <div class="title">Bienvenue dans la<br>BankAutobahn</div>
-        <br>lollllllle
+      <div class="container-fluid header-espacperso mt-5">
+        <div class="title-espacperso">Votre espace personnel</div>
+      </div>
+
+      <div class="container-fluid mb-5 navbar-compte">
+        <div class="row justify-content-start">
+          <div class="col-7">
+            <p class="card-text">Compte 1</p>
+          </div>
+          <div class="col-5" >
+            <p>Capital : [php capital]</p>
+          </div>
+        </div>
       </div>
 
       <div class="container mb-4">

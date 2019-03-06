@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -33,9 +34,9 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
               <a tabindex="#" class="navbar-item nav-link active">Home <span class="sr-only">(current)</span></a>
-              <a href="compte.html" class="nav-item nav-link">Compte</a>
-              <a href="informations.html" class="nav-item nav-link">Informaions</a>
-              <a href="telechargements.html" class="nav-item nav-link">Téléchargements</a>
+              <a href="espacperso.php" class="nav-item nav-link">Espace personnel</a>
+              <a href="informations.php" class="nav-item nav-link">Informaions</a>
+              <a href="telechargements.php" class="nav-item nav-link">Téléchargements</a>
             </div>
             <button type="button" class="btn btn-secondary ml-auto" data-toggle="modal" data-target="#loginModal">Se connecter</button>
           </div>
@@ -99,7 +100,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form class="" action="index.html" method="post">
+              <form class="" action="index.php" method="post">
                 <div class="form-group">
                   <label for="accountId">ID de compte</label>
                   <input type="number" class="form-control" maxlength="10" id="accountId" required>
@@ -108,12 +109,9 @@
                   <label for="accountPassword">Mot de passe</label>
                   <input type="password" class="form-control" id="accountPassword" required>
                 </div>
-                <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="accountStayConnected">
-                  <label class="form-check-label" for="accountStayConnected">Rester connecté</label>
-                </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
               </form>
+              <a href="creacompte.php" class="text-decoration-none"><p class="text-center font-weight-light">créer un comte</p></a>
             </div>
           </div>
         </div>
@@ -132,6 +130,10 @@
 
     <!-- <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"> -->
+
+    <script src="http://localhost:35729/livereload.js" type="text/javascript">
+
+    </script>
 
   </body>
 </html>
