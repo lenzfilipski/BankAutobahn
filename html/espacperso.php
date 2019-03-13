@@ -35,7 +35,7 @@
           <div class="navbar-nav">
             <a href="index.php" class="navbar-item nav-link">Home <span class="sr-only">(current)</span></a>
             <a tabindex="#" class="nav-item nav-link active">Espace personnel</a>
-            <a href="informations.php" class="nav-item nav-link">Informaions</a>
+            <a href="informations.php" class="nav-item nav-link">Informations</a>
             <a href="telechargements.php" class="nav-item nav-link">Téléchargements</a>
 
           </div>
