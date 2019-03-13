@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         myWebView = findViewById(R.id.webview);
         myWebView.setWebViewClient(new WebViewClient());
         if (savedInstanceState == null) {
-            myWebView.loadUrl("http://lenz.filipski.fr:8080/html/index.php");
+            myWebView.loadUrl("http://bank.filipski.fr:8001/");
         }
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
