@@ -48,10 +48,10 @@
 
       <div class="container-fluid mb-5 navbar-compte">
         <div class="row justify-content-start">
-          <div class="col-7">
+          <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 col-5">
             <p class="card-text">Compte 1</p>
           </div>
-          <div class="col-5" >
+          <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-7">
             <p>Capital : [php capital]</p>
           </div>
         </div>
@@ -88,12 +88,12 @@
           <div class="col">
             <div class="card mb-4 shadow-sm">
               <div class="card-header">
+                <div class="card-title mb-0">Vos comptes</div>
               </div>
               <div class="card-body">
-                <div class="card-title">Infos</div>
-                [Name Here]
-                <br>[Capital Here]
-                <br><button class="btn btn-secondary" type="button" name="but1"> first button</button>
+
+                [php aficher la liste des comptes, surligner le compte actuel]
+                <br><a href="#" class="btn btn-secondary" type="button" name="but1">[ajouter un compte]</a>
               </div>
             </div>
           </div>
