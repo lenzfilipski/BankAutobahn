@@ -35,7 +35,7 @@
             <div class="navbar-nav">
               <a tabindex="#" class="navbar-item nav-link active">Home <span class="sr-only">(current)</span></a>
               <a href="espacperso.php" class="nav-item nav-link">Espace personnel</a>
-              <a href="informations.php" class="nav-item nav-link">Informaions</a>
+              <a href="informations.php" class="nav-item nav-link">Informations</a>
               <a href="telechargements.php" class="nav-item nav-link">Téléchargements</a>
             </div>
             <button type="button" class="btn btn-secondary ml-auto" data-toggle="modal" data-target="#loginModal">Se connecter</button>
