@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        myWebView = (WebView) findViewById(R.id.webview);
+        myWebView = findViewById(R.id.webview);
         myWebView.setWebViewClient(new WebViewClient());
         if (savedInstanceState == null) {
             myWebView.loadUrl("http://lenz.filipski.fr:8080/html/index.php");
