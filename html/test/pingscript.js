@@ -1,4 +1,4 @@
-var sock = new WebSocket('ws://localhost:5001');
+var sock = new WebSocket('ws://bank.filipski.fr:5001');
 sock.onopen = function (event) {
   alert('Connected!')
   setTimeout(function() {
