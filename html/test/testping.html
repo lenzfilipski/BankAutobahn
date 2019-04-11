@@ -1,0 +1,17 @@
+<<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Test ping JS</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="pingscript.js"></script>
+
+    <input type=text onchange='var tempmes = JSON.stringify({ "id":"test", "content":this.value  }); sock.send(tempmes); '>
+    <br>
+    <p>
+      OUTPUT: <output type="text" id="enter1" value="" readonly></output>
+    </p>
+
+  </body>
+</html>
