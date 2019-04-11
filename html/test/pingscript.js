@@ -1,11 +1,15 @@
 var sock = new WebSocket('ws://bank.filipski.fr:5001');
 sock.onopen = function (event) {
-  alert('Connected!')
-  setTimeout(function() {
-    sock.send('Hello World!')
-  }, 1000);
+  console.log('Connected!');
+  sock.send('{ "type":"text", "content":"Hello world!"}');
 };
 sock.onmessage = function (event) {
   console.log(event.data);
-  document.getElementById('enter1').innerHTML = event.data
+  var in_mess = JSON.parse(event.data);
+  switch (message.type) {
+    case 'ping':
+      sock.send('{ "id":"ping", "content":"1" }')
+  };
+  document.getElementById('enter1').innerHTML = in_mess.content
+
 };
