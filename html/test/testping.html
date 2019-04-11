@@ -7,7 +7,7 @@
   <body>
     <script type="text/javascript" src="pingscript.js"></script>
 
-    <input type=text onchange='var tempmes = JSON.stringify({ "id":"test", "content":this.value  }); sock.send(tempmes); '>
+    <input type=text onchange='var tempmes = JSON.stringify({ "id":"test", "content":this.value }); sock.send(tempmes);'>
     <br>
     <p>
       OUTPUT: <output type="text" id="enter1" value="" readonly></output>
