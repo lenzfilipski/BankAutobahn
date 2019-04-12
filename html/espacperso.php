@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -25,7 +24,7 @@
 
       <div class="navbar navbar-expand-sm fixed-top shadow-sm">
         <a class="navbar-brand" href="index.php">
-          <img src="http://lorempixel.com/output/cats-q-c-640-640-3.jpg" height="30" width="30" class="d-inline-block align-top" alt="Brand logo">
+          <img src="https://placekitten.com/640/640" height="30" width="30" class="d-inline-block align-top" alt="Brand logo">
           BankAutobahn
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +51,7 @@
             <p class="card-text">Compte 1</p>
           </div>
           <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-7">
-            <p>Capital : [php capital]</p>
+            <p>Capital : [ws capital]</p>
           </div>
         </div>
       </div>
@@ -115,7 +114,6 @@
 
     <!-- <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"> -->
-
 
 
   </body>
