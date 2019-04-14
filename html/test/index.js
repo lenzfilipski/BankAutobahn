@@ -1,5 +1,18 @@
+// WSS init from https://blog.zackad.com/en/2017/08/19/create-websocket-with-nodejs.html
+// Minimal amount of secure websocket server
+var fs = require('fs');
+// read ssl certificate
+var privateKey = fs.readFileSync('cert/privkey.pem', 'utf8');
+var certificate = fs.readFileSync('cert/fullchain.pem', 'utf8');
+var credentials = { key: privateKey, cert: certificate };
+var https = require('https');
+//pass in your credentials to create an https server
+var httpsServer = https.createServer(credentials);
+httpsServer.listen(5001);
+
+
 var server = require('ws').Server;
-var serv1 = new server({ port: 5001 });
+var serv1 = new server({ server: httpsServer });
 
 serv1.on('connection', function(ws) {
   console.log('connected');
