@@ -1,4 +1,4 @@
-var sock = new WebSocket('ws://localhost:5001');
+var sock = new WebSocket('ws://lenz.filipski.fr:5001');
 sock.onopen = function (event) {
   // Create a random session ID
   console.log('Connected!');
@@ -17,7 +17,7 @@ sock.onmessage = function (event) {
           sock.send('ping__pong__')
           break;
         default:
-          
+
       }
       break;
     case 'test':
