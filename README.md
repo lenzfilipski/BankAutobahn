@@ -13,6 +13,11 @@ On utilise le protocole websocket pour communiquer entre le client et la base de
 
 Pour que les communications soient sécurisées il faut utiliser le protocole SSL pour le http et websocket (ws). Pour le https il faut générer un certificat et une clé, faire signer le certificat (par soi ou une autorité) et forcer la redirrection du http au https. Pour le wss on utilise du reverse proxy ; le client envoie une requette au serveur avec une url particulière, le serveur redirige de cette url vers une autre en interne (ws://localhost:5001 dans notre cas) puis renvoye des données au client si besoin.
 
+## Les fichiers commentés ou à regarder :
+- [html/test/testping.html](https://github.com/Elyox/BankAutobahn/blob/commentaires/html/test/testping.html)
+- [html/test/pingscript.js](https://github.com/Elyox/BankAutobahn/blob/commentaires/html/test/pingscript.js)
+- [html/test/index.js](https://github.com/Elyox/BankAutobahn/blob/commentaires/html/test/index.js)
+
 
 
 ## Cahier des charges
