@@ -3,7 +3,7 @@
 // a.send(x) permet d'envoyer d'envoyer la chaine x avec la connection a
 
 // Cree un lien websocket secure avec le serveur
-var sock = new WebSocket('wss://lenz.filipski.fr:5001');
+var sock = new WebSocket('wss://bank.filipski.fr:5001');
 
 // Execute a l'ouverture de la connection avec le serveur
 sock.onopen = function (event) {
