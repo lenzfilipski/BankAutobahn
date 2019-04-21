@@ -1,6 +1,10 @@
+// javascript du client / page web
+
+// Cree un lien websocket avec le serveur
 var sock = new WebSocket('ws://lenz.filipski.fr:5001');
+
+// Execute a l'ouverture de la connection
 sock.onopen = function (event) {
-  // Create a random session ID
   console.log('Connected!');
   sock.send('testHello world!');
 };
