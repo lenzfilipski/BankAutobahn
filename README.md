@@ -17,6 +17,7 @@ Pour que les communications soient sécurisées il faut utiliser le protocole SS
 - [html/test/testping.html](https://github.com/Elyox/BankAutobahn/blob/commentaires/html/test/testping.html)
 - [html/test/pingscript.js](https://github.com/Elyox/BankAutobahn/blob/commentaires/html/test/pingscript.js)
 - [html/test/index.js](https://github.com/Elyox/BankAutobahn/blob/commentaires/html/test/index.js)
+- [Android/MainActivity.java](https://github.com/Elyox/BankAutobahn/blob/commentaires/Android/MainActivity.java)
 
 
 
