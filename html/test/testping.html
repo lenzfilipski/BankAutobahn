@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+<!-- Page de test pour la mise en place d'un serveur websocket -->
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title> Test ping JS</title>
   </head>
   <body>
+    <!-- importe pingscript.js -->
     <script type="text/javascript" src="pingscript.js"></script>
 
+    <!-- Champ de texte a envoyer au serveur ws -->
     <input type=text onchange="var tempmes = 'test' + this.value; sock.send(tempmes);">
     <br>
     <p>
+      <!-- affiche le content avec id == 'test' recu du serveur ws -->
       OUTPUT: <output type="text" id="enter1" value="" readonly></output>
     </p>
 
