@@ -1,1 +1,4 @@
 README-Template.md
+.gitignore
+html/test.php
+html/test/index_test.js
