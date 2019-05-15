@@ -1,4 +1,4 @@
-<?php  ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!-- Page de test pour la mise en place d'un serveur websocket -->
 <html lang="fr" dir="ltr">
