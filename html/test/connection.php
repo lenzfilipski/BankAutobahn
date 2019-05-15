@@ -1,3 +1,4 @@
+<?php  ?>
 <!DOCTYPE html>
 <!-- Page de test pour la mise en place d'un serveur websocket -->
 <html lang="fr" dir="ltr">
@@ -14,17 +15,9 @@
     <!-- importe pingscript.js -->
     <script type="text/javascript" src="pingscript_test.js"></script>
 
-    <!-- Champ de texte a envoyer au serveur ws -->
-    <input type=text onchange="var tempmes = 'test' + this.value; sock.send(tempmes);">
-    <br>
-    <p>
-      <!-- affiche le content avec id == 'test' recu du serveur ws -->
-      OUTPUT: <output type="text" id="enter1" value="" readonly></output>
-    </p>
-
     <div class="container">
 
-      <form class="form-signin" action="testping.html" style="max-width: 330px; margin: auto;" method="get">
+      <form class="form-signin" action="connection.php" style="max-width: 330px; margin: auto;" method="get">
         <h2 class="form-signin-heading">Connectez-vous</h2>
         <input type="text" id="inputId" class="form-control mb-2" placeholder="Identifiant" required autofocus>
         <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>

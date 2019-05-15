@@ -52,6 +52,10 @@ body {
 .btn {
   border: none;
 }
+.btn-primary {
+  color: var(--on-primary-color);
+  background-color: var(--primary-color);
+}
 .btn-secondary {
   color: var(--on-secondary-color);
   background-color: var(--secondary-color);

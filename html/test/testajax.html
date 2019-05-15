@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- AJAX test -->
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function riiturn() {
+        var accId = document.getElementById['names'].value;
+        var toAjax = 'inputs=' + accId
+        $.ajax({
+          type:"post",
+          url:"riiturn.php",
+          data:toAjax,
+          cache:false,
+          success: function(html) {
+            $('#msg').html(html);
+          }
+        });
+        return false;
+      };
+    </script>
+
+    <form class="" action="#">
+      <input type="text" id="names" value="">
+      <input type="submit" onclick="riiturn()">
+
+    </form>
+
+    <p id="msg"></p>
+
+  </body>
+</html>

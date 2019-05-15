@@ -1,3 +1,47 @@
+// function that togle connection form and full site
+function toggleSite() {
+  if (connected == true) {
+
+  }
+  else {
+
+  };
+};
+
+function sendConn() {
+  var accId = document.getElementById['inputId'].value;
+  var accPw = document.getElementById['inputPassword'].value;
+  if (accId && accPw) {
+    if (accId.length == 10) {
+      var connToSend = 'conn' + accId + accPw;
+      sock.send(connToSend);
+      console.log(connToSend);
+    }
+    else {
+      console.log("Id is too short");
+    };
+  };
+};
+
+function riiturn() {
+  var accId = document.getElementById['inputId'].value;
+  var accPw = document.getElementById['inputPassword'].value;
+  var toAjax = 'inputs=' + accId + accPw;
+  $.ajax({
+    type:"post",
+    url:"riiturn.php",
+    data:toAjax,
+    cache:false,
+    success: function(html) {
+      $('#msg').html(html);
+    }
+  });
+  return false;
+}
+
+
+
+
 var sock = new WebSocket('ws://localhost:5001');
 sock.onopen = function (event) {
   // Create a random session ID
@@ -16,6 +60,12 @@ sock.onmessage = function (event) {
       break;
     case 'test':
       document.getElementById('enter1').innerHTML = content;
+      break;
+    case 'conn':
+      if (content == '1') { connected = true; }
+      else { connected = false; };
+      toggleSite();
+
       break;
   }
 };
