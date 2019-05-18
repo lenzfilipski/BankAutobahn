@@ -31,7 +31,7 @@ $_SESSION['loged'] = 'yes'?>
         var acc_id = <?php echo json_encode($_POST['inputId']); ?>;
         var acc_pw = <?php echo json_encode($_POST['inputPassword']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
-          sock.send('cote'+acc_id+acc_pw)
+          sock.send('conn'+acc_id+acc_pw)
         };
       };
 
