@@ -32,8 +32,13 @@ serv1.on('connection', function(ws) {
     // Permet d'effectuer differentes actions en fonction de l'ID de la requette
     switch (id) {
       case 'conn':
-        var acc_id = mysqql.escape(content.slice(0, 10));
-        var acc_pw = content.slice(10);
+        if (content == '123456789012345') {
+          ws.send('coreok')
+        } else {
+          ws.send('coreno')
+        };
+        //var acc_id = mysqql.escape(content.slice(0, 10));
+        //var acc_pw = content.slice(10);
         //db_conn.query("SELECT pw FROM bk_users WHERE acc_id = ?", [acc_id], function (err, results) );
         break;
 
@@ -49,7 +54,7 @@ serv1.on('connection', function(ws) {
         };
         break;
       case 'cote':
-        if (content == '120458756512345') {
+        if (content == '123456789012345') {
           ws.send('coreok')
         } else {
           ws.send('coreno')

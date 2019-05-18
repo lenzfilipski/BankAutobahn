@@ -2,7 +2,6 @@
   session_start();
   $_SESSION['id'] = $_POST['inputId'];
   $_SESSION['pw'] = $_POST['inputPassword'];
-  $_SESSION['loged'] = 'yes'
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -27,7 +26,7 @@
     <script type="text/javascript">
       // Cree un lien websocket secure avec le serveur
       // j'ai remplace le port par '/myws' et mis en place un reverse proxy sur le seveur
-      var sock = new WebSocket('ws://localhost:5001');
+      var sock = new WebSocket('wss://bank.filipski.fr/myws');
 
       // Execute a l'ouverture de la connection avec le serveur ws
       sock.onopen = function (event) {
@@ -64,12 +63,6 @@
             break;
         }
       };
-
-      var acc_id = <?php echo json_encode($_POST['inputId']); ?>;
-      var acc_pw = <?php echo json_encode($_POST['inputPassword']); ?>;
-      if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
-        sock.send('cote'+acc_id+acc_pw)
-      }
     </script>
 
   <?php

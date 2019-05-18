@@ -10,6 +10,11 @@ var sock = new WebSocket('wss://bank.filipski.fr/myws');
 sock.onopen = function (event) {
   console.log('Connected!');
   sock.send('testHello world!');
+  var acc_id = <?php echo json_encode($_POST['inputId']); ?>;
+  var acc_pw = <?php echo json_encode($_POST['inputPassword']); ?>;
+  if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
+    sock.send('cote'+acc_id+acc_pw)
+  };
 };
 
 // Gere la reception des messages du serveur ws
@@ -23,11 +28,16 @@ sock.onmessage = function (event) {
 
   // Permet d'effectuer differentes actions en fonction de l'ID de la requette
   switch (id) {
+    case 'conn':
+      if (content != '1') {
+        window.location.replace('../connection.php');
+      };
+      break;
 
     // si id == test
     case 'test':
       // affiche le contenu de content dans la balise <output id="enter1">
       document.getElementById('enter1').innerHTML = content;
       break;
-  }
+  };
 };

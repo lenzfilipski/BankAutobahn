@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+$_SESSION['loged'] = 'yes'?>
 <!DOCTYPE html>
 <!-- Page de test pour la mise en place d'un serveur websocket -->
 <html lang="fr" dir="ltr">
@@ -12,6 +13,7 @@
     <title> Test ping JS</title>
   </head>
   <body>
+    <script type="text/javascript"></script>
     <!-- importe pingscript.js -->
     <script type="text/javascript" src="pingscript_test.js"></script>
 
