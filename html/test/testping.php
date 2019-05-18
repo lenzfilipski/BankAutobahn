@@ -28,8 +28,8 @@ $_SESSION['loged'] = 'yes'?>
       sock.onopen = function (event) {
         console.log('Connected!');
         sock.send('testHello world!');
-        var acc_id = <?php echo json_encode($_POST['inputId']); ?>;
-        var acc_pw = <?php echo json_encode($_POST['inputPassword']); ?>;
+        var acc_id = <?php echo json_encode($_SESSION['id']); ?>;
+        var acc_pw = <?php echo json_encode($_SESSION['pw']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
           sock.send('conn'+acc_id+acc_pw)
         };
