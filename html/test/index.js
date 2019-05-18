@@ -66,4 +66,7 @@ serv1.on('connection', function(ws) {
         break;
     };
   });
+  ws.on('close', function (code, reason) {
+        console.log("Connection closed");
+    });
 });

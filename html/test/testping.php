@@ -62,7 +62,7 @@ $_SESSION['loged'] = 'yes'?>
 
       function wsClose() {
         sock.close();
-        window.location.remplace('../index.html');
+        window.location.replace('../index.html');
       };
     </script>
     <!-- Champ de texte a envoyer au serveur ws -->
