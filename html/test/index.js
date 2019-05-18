@@ -6,6 +6,15 @@
 var server = require('ws').Server;
 var serv1 = new server({ port: 5001 });
 
+var mysql = require('mysql');
+var bd_conn = mysql.createConnection({
+  host: 'localhost',
+  user: 'bankroot',
+  password: 'qw7Z$yVC',
+  database: 'bank',
+});
+
+
 // Gere la connection des clients
 serv1.on('connection', function(ws) {
   console.log('connected');
@@ -22,6 +31,12 @@ serv1.on('connection', function(ws) {
 
     // Permet d'effectuer differentes actions en fonction de l'ID de la requette
     switch (id) {
+      case 'conn':
+        var acc_id = mysqql.escape(content.slice(0, 10));
+        var acc_pw = content.slice(10);
+        db_conn.query("SELECT pw FROM bk_users WHERE acc_id = ?", [acc_id], function (err, results) )
+        break;
+
       // si id == test
       case 'test':
         if (content == 'hello') {
