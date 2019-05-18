@@ -25,18 +25,6 @@ $_SESSION['loged'] = 'yes'?>
       OUTPUT: <output type="text" id="enter1" value="" readonly></output>
     </p>
 
-    <div class="container">
-
-      <form class="form-signin" action="testping.html" style="max-width: 330px; margin: auto;" method="get">
-        <h2 class="form-signin-heading">Connectez-vous</h2>
-        <input type="text" id="inputId" class="form-control mb-2" placeholder="Identifiant" required autofocus>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
-
-        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Se connecter</button>
-      </form>
-
-    </div> <!-- /container -->
-    <p id="msg"></p>
 
     <!-- Script loaded after the page -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
