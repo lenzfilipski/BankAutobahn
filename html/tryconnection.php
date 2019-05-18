@@ -62,6 +62,7 @@
             console.log('no valid id for: ' + content);
             break;
         }
+        sock.close();
       };
     </script>
 

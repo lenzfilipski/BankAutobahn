@@ -5,9 +5,9 @@ $_SESSION['loged'] = 'yes'?>
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.css"> -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <title> Test ping JS</title>
@@ -59,14 +59,21 @@ $_SESSION['loged'] = 'yes'?>
             break;
         };
       };
+
+      function wsClose() {
+        sock.close();
+        window.location.remplace('../index.html');
+      };
     </script>
     <!-- Champ de texte a envoyer au serveur ws -->
-    <input type=text onchange="var tempmes = 'test' + this.value; sock.send(tempmes);">
+    <input type=text class="mt-5" onchange="var tempmes = 'test' + this.value; sock.send(tempmes);">
     <br>
     <p>
       <!-- affiche le content avec id == 'test' recu du serveur ws -->
       OUTPUT: <output type="text" id="enter1" value="" readonly></output>
     </p>
+
+    <button type="button" class="mt-5" name="closeWs" onclick="wsClose()">Disconnect</button>
 
 
     <!-- Script loaded after the page -->
