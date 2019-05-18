@@ -34,7 +34,7 @@ serv1.on('connection', function(ws) {
       case 'conn':
         var acc_id = mysqql.escape(content.slice(0, 10));
         var acc_pw = content.slice(10);
-        db_conn.query("SELECT pw FROM bk_users WHERE acc_id = ?", [acc_id], function (err, results) )
+        //db_conn.query("SELECT pw FROM bk_users WHERE acc_id = ?", [acc_id], function (err, results) );
         break;
 
       // si id == test
@@ -47,6 +47,13 @@ serv1.on('connection', function(ws) {
           // renvoie ce qu'a envoye le client
           ws.send(message);
         };
+        break;
+      case 'cote':
+        if (content == '120458756512345') {
+          ws.send('coreok')
+        } else {
+          ws.send('coreno')
+        }
         break;
       // si pas de case pour id -> renvoie ce qu'a envoye le client avec id = 'noca'
       default:

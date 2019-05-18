@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+  if (!isset($_SESSION['logged']) || $_SESSION['logged'] != 'yes') {
+    ?> <script type="text/javascript">window.location.replace('connection.php');</script> <?php
+  } else {
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -120,3 +124,4 @@
 
   </body>
 </html>
+<?php }; ?>
