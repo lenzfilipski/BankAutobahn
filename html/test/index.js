@@ -14,7 +14,7 @@ var db_conn = mysql.createConnection({
   database: 'bank',
 });
 
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
