@@ -2,3 +2,4 @@ README-Template.md
 .gitignore
 html/test.php
 html/test/index_test.js
+html/test/node_modules
