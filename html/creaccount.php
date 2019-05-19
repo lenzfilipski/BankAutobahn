@@ -53,6 +53,25 @@
       };
     </script>
 
+    <div class="navbar navbar-expand-md fixed-top shadow-sm">
+          <a class="navbar-brand active" tabindex="#">
+            <img src="http://lorempixel.com/output/cats-q-c-640-640-3.jpg" height="30" width="30" class="d-inline-block align-top" alt="Brand logo">
+            BankAutobahn
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            <a tabindex="#" class="navbar-item nav-link active">Home <span class="sr-only">(current)</span></a>
+            <a href="tryconnection.php" class="nav-item nav-link">Espace personnel</a>
+            <a href="informations.html" class="nav-item nav-link">Informations</a>
+            <a href="telechargements.html" class="nav-item nav-link">Téléchargements</a>
+          </div>
+          <button type="button" class="btn btn-secondary ml-auto" data-toggle="modal" data-target="#loginModal">Se connecter</button>
+        </div>
+      </div>
+
     <div class="container">
 
       <form class="form-signin mt-5" action="trycreate.php" style="max-width: 330px; margin: auto;" method="post">

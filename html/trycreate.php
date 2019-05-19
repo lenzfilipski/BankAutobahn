@@ -61,6 +61,8 @@
               await sleep(3000);
               window.location.replace('connection.php');
             } else {
+              document.write('<p><b>Erreur</b>. Vous allez être redirigé automatiquement vers la page de création de compte.');
+              await sleep(3500);
               window.location.replace('creaccount.php');
             }
             break;
