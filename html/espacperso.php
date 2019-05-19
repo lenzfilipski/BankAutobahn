@@ -65,7 +65,7 @@
             break;
 
           case 'capi':
-            document.getElementById('accCapital').innerHTML = content;
+            document.getElementById('accSolde').innerHTML = content;
             break;
 
           case 'vico':
@@ -140,7 +140,7 @@
             <p class="card-text">Compte 1</p>
           </div>
           <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-7">
-            <p>Capital : <span id="accCapital"></span> €</p>
+            <p>Solde : <span id="accSolde"></span> €</p>
           </div>
         </div>
       </div>
