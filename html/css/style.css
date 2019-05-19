@@ -36,7 +36,9 @@ body {
   padding: 0;
 }
 
-
+.space {
+  height: 50px;
+}
 
 .main {
   margin: 0;
@@ -139,6 +141,10 @@ body {
 }
 /*--- Title animation ---*/
 -webkit-@keyframes homeTitle {
+  0% { letter-spacing: 30px; opacity: 0;}
+  100% { letter-spacing: normal; opacity: 1;}
+}
+-moz-@keyframes homeTitle {
   0% { letter-spacing: 30px; opacity: 0;}
   100% { letter-spacing: normal; opacity: 1;}
 }
