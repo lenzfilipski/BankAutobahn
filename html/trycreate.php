@@ -59,7 +59,7 @@
             if (content == 'ok') {
               document.write('<p><b>Compte Créé</b>. Vous allez être redirigé automatiquement vers votre espace personnel.');
               await sleep(3000);
-              window.location.replace('test/testping.php');
+              window.location.replace('connection.php');
             } else {
               window.location.replace('creaccount.php');
             }
