@@ -15,7 +15,7 @@
 
     <!-- Header / Entête -->
     <div class="navbar navbar-expand-md fixed-top shadow-sm">
-          <a class="navbar-brand active" href="index.html">
+          <a class="navbar-brand" href="index.html">
             <img src="http://lorempixel.com/output/cats-q-c-640-640-3.jpg" height="30" width="30" class="d-inline-block align-top" alt="Brand logo">
             BankAutobahn
           </a>
@@ -24,7 +24,7 @@
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav">
-            <a href="index.html" class="navbar-item nav-link active">Home <span class="sr-only">(current)</span></a>
+            <a href="index.html" class="navbar-item nav-link">Home <span class="sr-only">(current)</span></a>
             <a href="tryconnection.php" class="nav-item nav-link">Espace personnel</a>
             <a href="informations.html" class="nav-item nav-link">Informations</a>
             <a href="telechargements.html" class="nav-item nav-link">Téléchargements</a>
