@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.css"> -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title> Test ping JS</title>
+    <title>Se connecter</title>
   </head>
   <body>
     <div class="container">
@@ -21,6 +21,9 @@
 
         <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Se connecter</button>
       </form>
+      <div class="text-center mt-3">
+        <a href="creaccount.php">Pas de compte? En Crér un.</a>
+      </div>
 
     </div> <!-- /container -->
 

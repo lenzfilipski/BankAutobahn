@@ -1,8 +1,4 @@
-<?php
-  session_start();
-  $_SESSION['id'] = $_POST['inputId'];
-  $_SESSION['pw'] = $_POST['inputPassword'];
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -15,8 +11,10 @@
       echo $_POST['inputId'];
       echo $_POST['inputPassword'] . '<br>';
 
-      if (isset($_POST['inputId']) && isset($_POST['inputPassword'])) {
+      if (isset($_POST['inputId'], $_POST['inputPassword'])) {
         echo "OK!";
+        $_SESSION['id'] = $_POST['inputId'];
+        $_SESSION['pw'] = $_POST['inputPassword'];
         $testInput = preg_replace('/[^0-9]/', '', $_POST['inputId']);
         if (strlen($testInput) == 10 && $_POST['inputId'] == $testInput)   {
           echo "iwork<br>";
@@ -27,6 +25,7 @@
       // Cree un lien websocket secure avec le serveur
       // j'ai remplace le port par '/myws' et mis en place un reverse proxy sur le seveur
       var sock = new WebSocket('wss://bank.filipski.fr/myws');
+      //var sock = new WebSocket('ws://localhost:5001');
 
       // Execute a l'ouverture de la connection avec le serveur ws
       sock.onopen = function (event) {

@@ -9,6 +9,9 @@
   "author": "Lenz Filipski",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "mysql": "^2.17.1",
+    "node-mysql": "^0.4.2",
     "ws": "^6.2.1"
   }
 }

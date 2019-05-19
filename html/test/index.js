@@ -3,16 +3,19 @@
 
 
 // importe la bibliotheque websocket (ws) et cree un serveur qui ecoute le port 5001
-var server = require('ws').Server;
+const server = require('ws').Server;
 var serv1 = new server({ port: 5001 });
 
-var mysql = require('mysql');
-var bd_conn = mysql.createConnection({
+const mysql = require('mysql');
+var db_conn = mysql.createConnection({
   host: 'localhost',
   user: 'bankroot',
   password: 'qw7Z$yVC',
   database: 'bank',
 });
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 
 // Gere la connection des clients
@@ -31,15 +34,44 @@ serv1.on('connection', function(ws) {
 
     // Permet d'effectuer differentes actions en fonction de l'ID de la requette
     switch (id) {
+      // Se connecter en comparant les entrees avec la base de donnes
       case 'conn':
-        if (content == '123456789012345') {
-          ws.send('coreok')
-        } else {
-          ws.send('coreno')
-        };
-        //var acc_id = mysqql.escape(content.slice(0, 10));
-        //var acc_pw = content.slice(10);
-        //db_conn.query("SELECT pw FROM bk_users WHERE acc_id = ?", [acc_id], function (err, results) );
+        // if (content == '123456789012345') {
+        //   ws.send('coreok')
+        // } else {
+        //   ws.send('coreno')
+        // };
+        var acc_id = mysqql.escape(content.slice(0, 10));
+        var acc_pw = content.slice(10);
+        db_conn.connect(function(err) {
+          if (err) throw err;
+          db_conn.query("SELECT acc_pw FROM bk_users WHERE acc_id = ?", [acc_id], function (err, result, fields) {
+            if (err) throw err;
+            bcrypt.compare(myPlaintextPassword, hash, function(err, res) {
+                // res == true
+            });
+            bcrypt.compare(someOtherPlaintextPassword, hash, function(err, res) {
+                // res == false
+            });
+          });
+        });
+        break;
+
+      // Cree un compte en hachant le mot de passe
+      case 'crea':
+        var acc_id = mysql.escape(content.slice(0, 10));
+        var acc_pw = content.slice(10);
+        bcrypt.hash(acc_pw, saltRounds, function(err, hash) {
+          if (err) throw err;
+          db_conn.connect(function(err) {
+            if (err) throw err;
+            db_conn.query("INSERT INTO bk_users (acc_id, acc_pw) VALUES ?", [acc_id, hash], function (err, result) {
+              if (err) throw err;
+              console.log('Account created:' + result.affectedRows);
+              ws.send('crcook');
+            });
+          });
+        });
         break;
 
       // si id == test
