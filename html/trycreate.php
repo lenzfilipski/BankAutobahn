@@ -47,12 +47,17 @@
       sock.onmessage = async function (event) {
         console.log(event.data);
 
+        // Permet de récupérer et de séparer l'ID et le contenu recu du serveur ws
+        var message = event.data;
+        var id = message.slice(0, 4);
+        var content = message.slice(4);
+
         // Permet d'effectuer differentes actions en fonction de l'ID de la requette
         switch (id) {
           // verifie la creation du compte par le serveur
           case 'crco':
             if (content == 'ok') {
-              document.write('<p>Vous allez être redirigé automatiquement vers votre espace personnel.');
+              document.write('<p><b>Compte Créé</b>. Vous allez être redirigé automatiquement vers votre espace personnel.');
               await sleep(3000);
               window.location.replace('test/testping.php');
             } else {

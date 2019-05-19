@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start();
+  if (isset($_GET['close']) && $_GET['close'] == 1) {
+    $_SESSION['logged'] = no
+    ?><script type="text/javascript">window.location.replace('index.html');</script>;<?php
+  };
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -51,7 +56,7 @@
         switch (id) {
           case 'core':
             if (content == 'ok') {
-              window.location.replace('test/testping.php');
+              window.location.replace('espacperso.php/?log=1');
             } else {
               window.location.replace('connection.php');
             }

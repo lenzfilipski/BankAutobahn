@@ -28,7 +28,6 @@ $_SESSION['loged'] = 'yes'?>
       // Execute a l'ouverture de la connection avec le serveur ws
       sock.onopen = function (event) {
         console.log('Connected!');
-        sock.send('testHello world!');
         var acc_id = <?php echo json_encode($_SESSION['id']); ?>;
         var acc_pw = <?php echo json_encode($_SESSION['pw']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
@@ -63,7 +62,7 @@ $_SESSION['loged'] = 'yes'?>
 
       function wsClose() {
         sock.close();
-        window.location.replace('../index.html');
+        window.location.replace('tryconnection.php/?close=1');
       };
     </script>
     <!-- Champ de texte a envoyer au serveur ws -->

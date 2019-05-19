@@ -12,14 +12,56 @@
     <title>Créer un compte</title>
   </head>
   <body>
+
+    <script type="text/javascript">
+      // javascript du client / page web
+      // console.log(x) permet d'afficher x dans la console
+      // a.send(x) permet d'envoyer d'envoyer la chaine x avec la connection a
+
+      // Cree un lien websocket secure avec le serveur
+      // j'ai remplace le port par '/myws' et mis en place un reverse proxy sur le seveur
+      //var sock = new WebSocket('wss://bank.filipski.fr/myws');
+      var sock = new WebSocket('ws://localhost:5001');
+
+      sock.onopen = function (event) {
+        console.log('Connected!');
+        sock.send('reqi')
+      };
+
+      sock.onmessage = function (event) {
+        console.log(event.data);
+
+        // Permet de récupérer et de séparer l'ID et le contenu recu du serveur ws
+        var message = event.data;
+        var id = message.slice(0, 4);
+        var content = message.slice(4);
+
+        // Permet d'effectuer differentes actions en fonction de l'ID de la requette
+        switch (id) {
+          // recoit et affiche l'id envoye par le serveur
+          case 'newi':
+            document.getElementById('newId').innerHTML = content;
+            document.getElementById('idHere').value = content;
+            break;
+
+          // si id == test
+          case 'test':
+            // affiche le contenu de content dans la balise <output id="enter1">
+            document.getElementById('enter1').innerHTML = content;
+            break;
+        };
+      };
+    </script>
+
     <div class="container">
 
       <form class="form-signin mt-5" action="trycreate.php" style="max-width: 330px; margin: auto;" method="post">
         <h2 class="form-signin-heading">Créer un compte</h2>
-        <input type="text" name="inputId" class="form-control mb-2" placeholder="Identifiant" <?php if (isset($_SESSION['id'])) { echo 'value="'.$_SESSION['id'].'"'; } ?> required autofocus>
-        <input type="password" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
+        <p>ID : <span id="newId"></span></p>
+        <input type="hidden" name="inputId" id="idHere">
+        <input type="password" name="inputPassword" class="form-control" placeholder="Mot de passe" required autofocus>
 
-        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Se connecter</button>
+        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">S'enregistrer</button>
       </form>
       <div class="text-center mt-3">
         <a href="connection.php">Déjà un compte? Se connecter.</a>
