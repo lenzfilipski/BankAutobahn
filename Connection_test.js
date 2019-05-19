@@ -22,7 +22,7 @@ con.query('SELECT account, password FROM users', function(err, rows, fields) {
   });
 
   //Créer un compte
-  con.query('INSERT INTO users (account, password) VALUES (0000000002, 4567)', function(err, rows, fields) {
+  con.query('INSERT INTO users (account, password) VALUES (0000000002, 4567)', function(err, rows) {
     if (!err)
       console.log('Account created!');
     else
