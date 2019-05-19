@@ -1,12 +1,12 @@
 <?php session_start();
   // Vérifie que le client vient de la page de connection.
   // Sinon le redirige vers cette dernière
-  if (isset($_GET['loggin']) && $_GET['log'] == 1) {
-    $_SESSION['logged'] = 'yes';
-  };
-  if (!isset($_SESSION['logged']) || $_SESSION['logged'] != 'yes') {
-    ?> <script type="text/javascript">window.location.replace('connection.php');</script> <?php
-  };
+  // if (isset($_GET['loggin']) && $_GET['log'] == 1) {
+  //   $_SESSION['logged'] = 'yes';
+  // };
+  // if (!isset($_SESSION['logged']) || $_SESSION['logged'] != 'yes') {
+  ?><!-- <script type="text/javascript">window.location.replace('connection.php');</script> --><?php
+  // };
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
