@@ -6,8 +6,8 @@ const https = require('https');
 // importe la bibliotheque websocket (ws) et cree un serveur qui ecoute le port 5001
 const WebSocket = require('ws');
 const server = https.createServer({
-  cert: fs.readFileSync('/etc/letsencrypt/live/bank.filipski.fr/fullchain.pem'),
-  key: fs.readFileSync('/etc/letsencrypt/live/bank.filipski.fr/privkey.pem')
+  cert: fs.readFileSync('/etc/letsencrypt/live/ws.bank.filipski.fr/fullchain.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/ws.bank.filipski.fr/privkey.pem')
 });
 const serv1 = new WebSocket.Server({ server });
 
@@ -41,7 +41,7 @@ serv1.on('connection', function(ws) {
     switch (id) {
       // Se connecter en comparant les entrees avec la base de donnes
       case 'conn':
-        if (content == '123456789012345') {
+        if (content == '1123456789012345' || content == '0123456789012345') {
           ws.send('coreok')
         } else {
           ws.send('coreno')

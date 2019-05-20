@@ -32,7 +32,7 @@
 
       // Cree un lien websocket secure avec le serveur
       // j'ai remplace le port par '/myws' et mis en place un reverse proxy sur le seveur
-      var sock = new WebSocket('wss://bank.filipski.fr:5001');
+      var sock = new WebSocket('wss://ws.bank.filipski.fr:4445');
       //var sock = new WebSocket('ws://78.201.71.90:4445');
 
       // Execute a l'ouverture de la connection avec le serveur ws
@@ -42,7 +42,7 @@
         var acc_id = <?php echo json_encode($_SESSION['id']); ?>;
         var acc_pw = <?php echo json_encode($_SESSION['pw']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
-          sock.send('conn'+acc_id+acc_pw);
+          sock.send('conn1'+acc_id+acc_pw);
           sock.send('refr');
         };
       };
