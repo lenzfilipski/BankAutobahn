@@ -41,7 +41,7 @@ serv1.on('connection', function(ws) {
     switch (id) {
       // Se connecter en comparant les entrees avec la base de donnes
       case 'conn':
-        if (content == '1123456789012345' || content == '0123456789012345') {
+        if (content == '123456789012345') {
           ws.send('coreok')
         } else {
           ws.send('coreno')

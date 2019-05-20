@@ -42,7 +42,7 @@
         var acc_id = <?php echo json_encode($_SESSION['id']); ?>;
         var acc_pw = <?php echo json_encode($_SESSION['pw']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
-          sock.send('conn1'+acc_id+acc_pw);
+          sock.send('conn'+acc_id+acc_pw);
           sock.send('refr');
         };
       };
@@ -58,9 +58,9 @@
 
         // Permet d'effectuer differentes actions en fonction de l'ID de la requette
         switch (id) {
-          case 'conn':
-            if (content != '1') {
-              window.location.replace('../connection.php');
+          case 'core':
+            if (content != 'ok') {
+              window.location.replace('connection.php');
             };
             break;
 

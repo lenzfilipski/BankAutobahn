@@ -39,7 +39,7 @@
         var acc_id = <?php echo json_encode($_POST['inputId']); ?>;
         var acc_pw = <?php echo json_encode($_POST['inputPassword']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
-          sock.send('conn0'+acc_id+acc_pw)
+          sock.send('cote'+acc_id+acc_pw);
         }
       };
 
