@@ -26,9 +26,8 @@ serv1.on('connection', function(ws) {
       switch (id) {
 
         case 'conn': // conecte to a account
-	    var connortest = content.slice(0, 1);
-            var iden = content.slice(1, 11);
-            var pw = content.slice(11);
+            var iden = content.slice(0, 10);
+            var pw = content.slice(10);
             var con = mysql.createConnection({
               host: 'localhost',
               user: 'root',
@@ -44,8 +43,36 @@ serv1.on('connection', function(ws) {
               if (!err){
                 if (pw == rows[0].password){
                   ws.send("coreok");
-                  if (connortest == '1') {conect = true;};
+                  conect = true;
                   identifiant = iden;
+                }
+                else
+                  ws.send("coreno");
+              }
+              else
+                ws.send("coreno");
+              });
+            con.end();
+            break;
+		      
+	case 'cote': // test connection to an account
+            var iden = content.slice(0, 10);
+            var pw = content.slice(10);
+            var con = mysql.createConnection({
+              host: 'localhost',
+              user: 'root',
+              password: '1234',
+              database: 'TEST'
+            });
+            con.connect(function(err){
+              if (err) throw err;
+              console.log("Connected!");
+            });
+            values = [[iden]];
+            con.query('SELECT account, password FROM users WHERE account=?', [values] , function(err, rows) {
+              if (!err){
+                if (pw == rows[0].password){
+                  ws.send("coreok");
                 }
                 else
                   ws.send("coreno");
