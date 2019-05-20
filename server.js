@@ -1,6 +1,14 @@
+const fs = require('fs');
+const https = require('https');
+
+const server = https.createServer({
+  cert: fs.readFileSync('/etc/letsencrypt/live/ws.bank.filipski.fr/fullchain.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/ws.bank.filipski.fr/privkey.pem')
+});
+
 var mysql = require('mysql');
-var server = require('ws').Server; // Import ws
-var serv1 = new server({ port: 4445 }); // Met en place le nouveau serveur sur le port 5001
+var WebSocket = require('ws'); // Import ws
+var serv1 = new WebSocket.Server({ server }); // Met en place le nouveau serveur sur le port 4445
 
 serv1.on('connection', function(ws) {
   console.log('connected');
@@ -17,8 +25,9 @@ serv1.on('connection', function(ws) {
       switch (id) {
 
         case 'conn': // conecte to a account
-            var iden = content.slice(0, 10);
-            var pw = content.slice(10);
+	    var connortest = content.slice(0, 1);
+            var iden = content.slice(1, 11);
+            var pw = content.slice(11);
             var con = mysql.createConnection({
               host: 'localhost',
               user: 'root',
@@ -34,7 +43,7 @@ serv1.on('connection', function(ws) {
               if (!err){
                 if (pw == rows[0].password){
                   ws.send("coreok");
-                  conect = true;
+                  if (connortest == '1') {conect = true;};
                   identifiant = iden;
                 }
                 else
@@ -183,4 +192,10 @@ serv1.on('connection', function(ws) {
     };
 
   });
+	
+  ws.on('close', function (code, reason) {
+    console.log("Connection closed: " + reason);
+  });
 });
+
+server.listen(4445);
