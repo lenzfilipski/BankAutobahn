@@ -129,7 +129,7 @@ serv1.on('connection', function(ws) {
       };
     };
 
-    
+
       switch (id) {
         case 'refr':
 	  if (conect) { // If already conected
@@ -224,15 +224,13 @@ serv1.on('connection', function(ws) {
           break;
 
       };
-    };
+    });
+
+    ws.on('close', function (code, reason) {
+      console.log("Connection closed: " + reason);
+    });
 
   });
 
-  ws.on('close', function (code, reason) {
-    console.log("Connection closed: " + reason);
-  });
-});
 
 server.listen(4445);
-
-
