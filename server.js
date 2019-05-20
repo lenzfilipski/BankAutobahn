@@ -6,6 +6,7 @@ const server = https.createServer({
   key: fs.readFileSync('/etc/letsencrypt/live/ws.bank.filipski.fr/privkey.pem')
 });
 
+var values = [[]];
 var mysql = require('mysql');
 var WebSocket = require('ws'); // Import ws
 var serv1 = new WebSocket.Server({ server }); // Met en place le nouveau serveur sur le port 4445
@@ -38,8 +39,8 @@ serv1.on('connection', function(ws) {
               if (err) throw err;
               console.log("Connected!");
             });
-
-            con.query('SELECT account, password FROM users WHERE account=?', [iden] , function(err, rows, fields) {
+            values = [[iden]];
+            con.query('SELECT account, password FROM users WHERE account=?', [values] , function(err, rows) {
               if (!err){
                 if (pw == rows[0].password){
                   ws.send("coreok");
@@ -79,12 +80,12 @@ serv1.on('connection', function(ws) {
               if (err) throw err;
               console.log("Connected!");
             });
-		var value = [[iden, pw]];
-            con.query("INSERT INTO users (account, password) VALUES ?", [value], function(err, rows) {
+		        values = [[iden, pw]];
+            con.query("INSERT INTO users (account, password) VALUES ?", [values], function(err, rows) {
               if (err) throw err
             });
-		value = [[iden, 420]];
-            con.query("INSERT INTO accounts (account, solde) VALUES ?", [value], function(err, rows) {
+		        values = [[iden, 420]];
+            con.query("INSERT INTO accounts (account, solde) VALUES ?", [values], function(err, rows) {
               if (!err) {
                 console.log('Account created!');
                 ws.send("crcook");
@@ -115,8 +116,8 @@ serv1.on('connection', function(ws) {
             if (err) throw err;
             console.log("Connected!");
           });
-
-          con.query('SELECT solde FROM accounts WHERE account=?', [identifiant] , function(err, rows, fields) {
+          values = [[identifiant]];
+          con.query('SELECT solde FROM accounts WHERE account=?', [values] , function(err, rows) {
             if (!err){
               ws.send(rows[0].solde);
             }
@@ -143,8 +144,8 @@ serv1.on('connection', function(ws) {
             if (err) throw err;
             console.log("Connected!");
           });
-
-          con.query('SELECT solde FROM solde WHERE account=?', [identifiant] , function(err, rows, fields) {
+          values = [[identifiant]];
+          con.query('SELECT solde FROM solde WHERE account=?', [values] , function(err, rows) {
             if (!err){
               if (rows[0].solde > montant) {
                 status = true;
@@ -159,7 +160,8 @@ serv1.on('connection', function(ws) {
             });
 
           if (status) {
-            con.query('SELECT solde FROM solde WHERE account=?', [destinataire] , function(err, rows, fields) {
+            values = [[destinataire]];
+            con.query('SELECT solde FROM solde WHERE account=?', [values] , function(err, rows) {
               if (rows.length == 0) {
                 status = false;
               }
@@ -173,13 +175,15 @@ serv1.on('connection', function(ws) {
           if (status) {
             var reste = montantAccount - montant;
             solde = reste;
-            con.query('UPDATE accounts SET solde=? WHERE account=?', [solde, identifiant] , function(err, rows, fields) {
+            values = [[solde,identifiant]];
+            con.query('UPDATE accounts SET solde=? WHERE account=?', [values] , function(err, rows) {
               if (err) throw err;
             });
 
             var newmontant = montantDestinataire + montant;
             solde = newmontant
-            con.query('UPDATE accounts SET solde=? WHERE account=?', [solde, destinataire] , function(err, rows, fields) {
+            values = [[solde,destinataire]];
+            con.query('UPDATE accounts SET solde=? WHERE account=?', [values] , function(err, rows) {
               if (err) throw err;
             });
           }
@@ -192,10 +196,11 @@ serv1.on('connection', function(ws) {
     };
 
   });
-	
+
   ws.on('close', function (code, reason) {
     console.log("Connection closed: " + reason);
   });
 });
 
 server.listen(4445);
+
