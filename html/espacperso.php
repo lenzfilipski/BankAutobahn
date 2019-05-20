@@ -68,6 +68,10 @@
             document.getElementById('accSolde').innerHTML = content;
             break;
 
+          case 'cape':
+            document.getElementById('accSolde').innerHTML = '#!Erreur!#';
+            break;
+
           case 'vico':
             if (content == 'ok') {
               document.getElementById('virInfo').innerHTML = 'Votre virement à bien été effectué.';
@@ -175,6 +179,7 @@
               </div>
             </div>
 
+<!-- Carte destinee a faire des virements -->
           </div>
           <div class="col">
             <div class="card mb-4 shadow-sm">
