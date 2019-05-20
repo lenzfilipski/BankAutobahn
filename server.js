@@ -129,9 +129,10 @@ serv1.on('connection', function(ws) {
       };
     };
 
-    if (conect) { // If already conected
+    
       switch (id) {
         case 'refr':
+	  if (conect) { // If already conected
 
           var con = mysql.createConnection({
             host: 'localhost',
@@ -154,9 +155,11 @@ serv1.on('connection', function(ws) {
             });
 
             con.end();
+	    };
             break;
 
         case 'vire':
+	  if (conect) { // If already conected
 
           var destinataire = content.slice(0, 10);
           var montant = content.slice(10);
@@ -217,6 +220,7 @@ serv1.on('connection', function(ws) {
 
 
           con.end();
+	  };
           break;
 
       };
