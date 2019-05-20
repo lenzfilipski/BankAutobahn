@@ -1,10 +1,15 @@
 // javascript execute par le serveur
 // console.log(x) permet d'afficher x dans la console
-
+const fs = require('fs');
+const https = require('https');
 
 // importe la bibliotheque websocket (ws) et cree un serveur qui ecoute le port 5001
-const server = require('ws').Server;
-var serv1 = new server({ port: 5001 });
+const WebSocket = require('ws');
+const server = https.createServer({
+  cert: fs.readFileSync('/etc/letsencrypt/live/bank.filipski.fr/fullchain.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/bank.filipski.fr/privkey.pem')
+});
+const serv1 = new WebSocket.Server({ server });
 
 const mysql = require('mysql');
 var db_conn = mysql.createConnection({
@@ -122,3 +127,5 @@ serv1.on('connection', function(ws) {
         console.log("Connection closed");
     });
 });
+
+server.listen(5001);
