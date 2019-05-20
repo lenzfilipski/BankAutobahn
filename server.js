@@ -146,10 +146,10 @@ serv1.on('connection', function(ws) {
           values = [[identifiant]];
           con.query('SELECT solde FROM accounts WHERE account=?', [values] , function(err, rows) {
             if (!err && rows.length !== 0){
-              ws.send(rows[0].solde);
+              ws.send('capi' + rows[0].solde);
             }
             else {
-              ws.send("coreno");
+              ws.send("cape");
             }
             });
 
