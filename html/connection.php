@@ -27,7 +27,7 @@
             <a href="index.html" class="navbar-item nav-link">Home <span class="sr-only">(current)</span></a>
             <a href="tryconnection.php" class="nav-item nav-link">Espace personnel</a>
             <a href="informations.html" class="nav-item nav-link">Informations</a>
-            <a href="telechargements.html" class="nav-item nav-link">Téléchargements</a>
+            <a href="BankAutobahn.apk" class="nav-item nav-link">Téléchargements</a>
           </div>
           <button type="button" class="btn btn-secondary ml-auto" data-toggle="modal" data-target="#loginModal">Se connecter</button>
         </div>

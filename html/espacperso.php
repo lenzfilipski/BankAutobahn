@@ -32,8 +32,8 @@
 
       // Cree un lien websocket secure avec le serveur
       // j'ai remplace le port par '/myws' et mis en place un reverse proxy sur le seveur
-      //var sock = new WebSocket('wss://bank.filipski.fr/myws');
-      var sock = new WebSocket('ws://78.201.71.90:4445');
+      var sock = new WebSocket('wss://bank.filipski.fr/myws');
+      //var sock = new WebSocket('ws://78.201.71.90:4445');
 
       // Execute a l'ouverture de la connection avec le serveur ws
       sock.onopen = function (event) {
@@ -118,7 +118,7 @@
             <a href="https://bank.filipski.fr/" class="navbar-item nav-link">Home <span class="sr-only">(current)</span></a>
             <a tabindex="#" class="nav-item nav-link active">Espace personnel</a>
             <a href="https://bank.filipski.fr/informations.html" class="nav-item nav-link">Informations</a>
-            <a href="https://bank.filipski.fr/telechargements.html" class="nav-item nav-link">Téléchargements</a>
+            <a href="https://bank.filipski.fr/BankAutobahn.apk" class="nav-item nav-link">Téléchargements</a>
 
           </div>
         </div>

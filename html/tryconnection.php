@@ -29,7 +29,7 @@
     <script type="text/javascript">
       // Cree un lien websocket secure avec le serveur
       // j'ai remplace le port par '/myws' et mis en place un reverse proxy sur le seveur
-      var sock = new WebSocket('ws://78.201.71.90:4445');
+      var sock = new WebSocket('wss://bank.filipski.fr/myws');
       //var sock = new WebSocket('ws://localhost:5001');
 
       // Execute a l'ouverture de la connection avec le serveur ws
