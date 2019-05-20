@@ -40,7 +40,7 @@ serv1.on('connection', function(ws) {
             });
             values = [[iden]];
             con.query('SELECT account, password FROM users WHERE account=?', [values] , function(err, rows) {
-              if (!err){
+              if (!err && rows.length !== 0){
                 if (pw == rows[0].password){
                   ws.send("coreok");
                   conect = true;
@@ -54,7 +54,7 @@ serv1.on('connection', function(ws) {
               });
             con.end();
             break;
-		      
+
 	case 'cote': // test connection to an account
             var iden = content.slice(0, 10);
             var pw = content.slice(10);
@@ -70,7 +70,7 @@ serv1.on('connection', function(ws) {
             });
             values = [[iden]];
             con.query('SELECT account, password FROM users WHERE account=?', [values] , function(err, rows) {
-              if (!err){
+              if (!err  && rows.length !== 0){
                 if (pw == rows[0].password){
                   ws.send("coreok");
                 }
@@ -113,7 +113,7 @@ serv1.on('connection', function(ws) {
             });
 		        values = [[iden, 420]];
             con.query("INSERT INTO accounts (account, solde) VALUES ?", [values], function(err, rows) {
-              if (!err) {
+              if (!err && rows.length !== 0) {
                 console.log('Account created!');
                 ws.send("crcook");
               }
@@ -145,7 +145,7 @@ serv1.on('connection', function(ws) {
           });
           values = [[identifiant]];
           con.query('SELECT solde FROM accounts WHERE account=?', [values] , function(err, rows) {
-            if (!err){
+            if (!err && rows.length !== 0){
               ws.send(rows[0].solde);
             }
             else {
@@ -173,7 +173,7 @@ serv1.on('connection', function(ws) {
           });
           values = [[identifiant]];
           con.query('SELECT solde FROM solde WHERE account=?', [values] , function(err, rows) {
-            if (!err){
+            if (!err && rows.length !== 0){
               if (rows[0].solde > montant) {
                 status = true;
                 var montantAccount = rows[0].solde;
@@ -230,4 +230,5 @@ serv1.on('connection', function(ws) {
 });
 
 server.listen(4445);
+
 
