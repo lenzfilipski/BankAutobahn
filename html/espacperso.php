@@ -74,14 +74,14 @@
             break;
 
           case 'cape':
-            document.getElementById('accSolde').innerHTML = '#!Erreur!#';
+            document.getElementById('accSolde').innerHTML = '---';
             break;
 
           case 'vico':
             if (content == 'ok') {
               document.getElementById('virInfo').innerHTML = 'Votre virement à bien été effectué.';
               sock.send('refr');
-              await sleep(500);
+              await sleep(100);
               sock.send('refr');
             } else {
               document.getElementById('virInfo').innerHTML = 'Un erreur est survenue. Vérifiez votre solde ou le desitnataire.'
