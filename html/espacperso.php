@@ -43,7 +43,6 @@
         var acc_pw = <?php echo json_encode($_SESSION['pw']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
           sock.send('conn'+acc_id+acc_pw);
-          sock.send('refr');
         };
       };
 
@@ -62,6 +61,7 @@
             if (content != 'ok') {
               window.location.replace('connection.php');
             };
+            sock.send('refr');
             break;
 
           case 'capi':
