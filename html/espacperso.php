@@ -75,7 +75,6 @@
           case 'vico':
             if (content == 'ok') {
               document.getElementById('virInfo').innerHTML = 'Votre virement à bien été effectué.';
-              virement();
             } else {
               document.getElementById('virInfo').innerHTML = 'Un erreur est survenue. Vérifiez votre solde ou le desitnataire.'
             }
