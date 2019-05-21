@@ -49,6 +49,7 @@
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
           sock.send('conn'+acc_id+acc_pw);
         };
+        document.getElementById('contoName').innerHTML =acc_id;
       };
 
       // Gere la reception des messages du serveur ws
@@ -149,7 +150,7 @@
       <div class="container-fluid mb-5 navbar-compte">
         <div class="row justify-content-start">
           <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7 col-5">
-            <p class="card-text">Compte 1</p>
+            <p class="card-text">Compte n°<span id="contoName"></span></p>
           </div>
           <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-7">
             <p>Solde : <span id="accSolde"></span> €</p>
