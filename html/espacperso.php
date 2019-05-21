@@ -35,6 +35,11 @@
       var sock = new WebSocket('wss://ws.bank.filipski.fr:4445');
       //var sock = new WebSocket('ws://78.201.71.90:4445');
 
+      // fonction pour faire une pause avec ms en ms
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      };
+
       // Execute a l'ouverture de la connection avec le serveur ws
       sock.onopen = function (event) {
         console.log('Connected!');
@@ -47,7 +52,7 @@
       };
 
       // Gere la reception des messages du serveur ws
-      sock.onmessage = function (event) {
+      sock.onmessage = async  function (event) {
         console.log(event.data);
 
         // Permet de récupérer et de séparer l'ID et le contenu recu du serveur ws
@@ -75,6 +80,7 @@
           case 'vico':
             if (content == 'ok') {
               document.getElementById('virInfo').innerHTML = 'Votre virement à bien été effectué.';
+              await sleep(3000);
               sock.send('refr');
             } else {
               document.getElementById('virInfo').innerHTML = 'Un erreur est survenue. Vérifiez votre solde ou le desitnataire.'
