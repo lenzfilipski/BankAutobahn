@@ -20,7 +20,6 @@ serv1.on('connection', function(ws) {
     var id = message.slice(0, 4);
     var content = message.slice(4);
     console.log('Recieved: ' + id + ' || ' + content);
-    console.log("AAAAAAAAA "+conect);
 
 
     if (true) { //if (!conect) { // If not already connected
@@ -46,7 +45,6 @@ serv1.on('connection', function(ws) {
                 if (pw == rows[0].password){
                   ws.send("coreok");
                   conect = true;
-                  console.log("BBBBBBBBB "+conect);
                   identifiant = iden;
                 }
                 else
@@ -255,7 +253,6 @@ serv1.on('connection', function(ws) {
                           con.query('UPDATE accounts SET solde=? WHERE account=?', [values,values2] , function(err, rows) {
                             if (!err){
                               console.log('Solde send');
-                              ws.send('capi' + reste);
                               ws.send("vicook");
                             }else{
                               ws.send("vicono");
