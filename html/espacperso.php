@@ -80,7 +80,8 @@
           case 'vico':
             if (content == 'ok') {
               document.getElementById('virInfo').innerHTML = 'Votre virement à bien été effectué.';
-              await sleep(3000);
+              sock.send('refr');
+              await sleep(500);
               sock.send('refr');
             } else {
               document.getElementById('virInfo').innerHTML = 'Un erreur est survenue. Vérifiez votre solde ou le desitnataire.'
