@@ -195,7 +195,6 @@ serv1.on('connection', function(ws) {
                 console.log(destinataire);
                 var montant = content.slice(10);
                 var status = false;
-                var montantDestinataire = 0;
                 console.log(montant)
 
                 var con = mysql.createConnection({
@@ -218,11 +217,11 @@ serv1.on('connection', function(ws) {
                     }
                     else {
                       status = false;
-                      ws.send("vivono");
+                      ws.send("vicono");
                     }
                   }
                   else{
-                    ws.send("vivono");
+                    ws.send("vicono");
                   }
 
                     console.log(status);
@@ -232,38 +231,43 @@ serv1.on('connection', function(ws) {
                       con.query('SELECT solde FROM accounts WHERE account=?', [values] , function(err, rows) {
                         if (err) {
                           status = false;
-                          ws.send("vivono");
+                          ws.send("vicono");
                         }
                         else {
-                          montantDestinataire = rows[0].solde;
-                        }
-                        });
-                    }
+                          var montantDestinataire = rows[0].solde;
+                          var reste = montantAccount - montant;
+                          solde = reste;
+                          console.log(solde);
+                          values = [[solde]];
+                          var values2 = [[identifiant]];
+                          con.query('UPDATE accounts SET solde=? WHERE account=?', [values,values2] , function(err, rows) {
+                            if (!err){
+                              console.log('User found');
+                            }else
+                              console.log('Error while performing Query.');
+                          });
 
-                    if (status) {
-                      var reste = montantAccount - montant;
-                      solde = reste;
-                      console.log(solde);
-                      values = [[solde]];
-                      var values2 = [[identifiant]];
-                      con.query('UPDATE accounts SET solde=? WHERE account=?', [values,values2] , function(err, rows) {
-                      });
+                          var newmontant = +montantDestinataire + +montant;
+                          solde = newmontant
+                          console.log(solde);
+                          values = [[solde]];
+                          var values2 = [[destinataire]];
+                          con.query('UPDATE accounts SET solde=? WHERE account=?', [values,values2] , function(err, rows) {
+                            if (!err){
+                              console.log('Solde send');
+                              ws.send('capi' + reste);
+                              ws.send("vicook");
+                            }else{
+                              ws.send("vicono");
+                              console.log('Error while performing Query.');
+                            }
+                          });
 
-                      var newmontant = montantDestinataire + montant;
-                      solde = newmontant
-                      console.log(solde);
-                      values = [[solde]];
-                      var values2 = [[destinataire]];
-                      con.query('UPDATE accounts SET solde=? WHERE account=?', [values,values2] , function(err, rows) {
-                      });
-                      ws.send("vicook");
-                    }
-                  else {
-                    ws.send("vivono");
-                  }
+                      }
+                    });
 
-                  });
-                con.end();
+                }
+                });
       	       }
                 break;
 
@@ -279,4 +283,5 @@ serv1.on('connection', function(ws) {
 
 
 server.listen(4445);
+
 
