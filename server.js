@@ -23,7 +23,7 @@ serv1.on('connection', function(ws) {
     console.log("AAAAAAAAA "+conect);
 
 
-    if (!conect) { // If not already connected
+    if (true) { //if (!conect) { // If not already connected
       switch (id) {
 
         case 'conn': // conecte to a account
@@ -272,6 +272,7 @@ serv1.on('connection', function(ws) {
 
     ws.on('close', function (code, reason) {
       console.log("Connection closed: " + reason);
+      conect = false;
     });
 
   });
