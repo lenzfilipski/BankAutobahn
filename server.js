@@ -191,7 +191,7 @@ serv1.on('connection', function(ws) {
 
                 var destinataire = content.slice(0, 10);
                 console.log(destinataire);
-                var montant = content.slice(10);
+                var montant = Math.abs(content.slice(10));
                 var status = false;
                 console.log(montant)
 
@@ -280,5 +280,3 @@ serv1.on('connection', function(ws) {
 
 
 server.listen(4445);
-
-
