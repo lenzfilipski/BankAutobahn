@@ -43,12 +43,13 @@
       // Execute a l'ouverture de la connection avec le serveur ws
       sock.onopen = function (event) {
         console.log('Connected!');
-        // Récupère les variables
+        // Récupère les variables de la page de connection
         var acc_id = <?php echo json_encode($_SESSION['id']); ?>;
         var acc_pw = <?php echo json_encode($_SESSION['pw']); ?>;
         if (typeof acc_id != 'undefined' && typeof acc_pw != 'undefined') {
           sock.send('conn'+acc_id+acc_pw);
         };
+        // Affiche le numero de compte su la page
         document.getElementById('contoName').innerHTML =acc_id;
       };
 
