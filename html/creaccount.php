@@ -68,7 +68,6 @@
             <a href="informations.html" class="nav-item nav-link">Informations</a>
             <a href="BankAutobahn.apk" class="nav-item nav-link">Téléchargements</a>
           </div>
-          <button type="button" class="btn btn-secondary ml-auto" data-toggle="modal" data-target="#loginModal">Se connecter</button>
         </div>
       </div>
 
