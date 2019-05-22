@@ -99,6 +99,14 @@ body {
   border-radius: 30%
 }
 
+.aconn-secondary {
+  color: var(--on-secondary-color);
+  background-color: var(--secondary-color);
+}
+.aconn-secondary:hover {
+  background-color: var(--secondary-variant-color);
+  color: var(--on-secondary-color);
+
 /*-- Comptes --*/
 .navbar-compte div div {
   color: var(--on-background-color);
