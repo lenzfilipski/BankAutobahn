@@ -124,7 +124,7 @@ body {
   box-shadow: 0 -0.325rem 0.25rem rgba(0, 0, 0, 0.075) inset;
   overflow: hidden;
   background-image: url('../media/highway.jpg');
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
