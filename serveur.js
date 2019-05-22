@@ -312,10 +312,9 @@ serv1.on('connection', function(ws) {
                           //On calcule le montant d'argent restant
                           var montantDestinataire = rows[0].solde;
                           var reste = montantAccount - montant;
-                          solde = reste;
-                          console.log(solde);
+                          console.log(reste);
                           //On récupère le compte et le nouveaux solde du client qui à envoyer l'argent
-                          values = [[solde]];
+                          values = [[reste]];
                           var values2 = [[identifiant]];
 
                           //On met a jours l'argent du compte qui éffectue le virement
@@ -327,10 +326,9 @@ serv1.on('connection', function(ws) {
                           });
                           //On calcule le nouveaux solde du client qui reçois l'argent
                           var newmontant = +montantDestinataire + +montant;
-                          solde = newmontant
-                          console.log(solde);
+                          console.log(newmontant);
                           //On récupère le nouveaux solde et le destinataire du virement
-                          values = [[solde]];
+                          values = [[newmontant]];
                           var values2 = [[destinataire]];
                           //On met a jours le compte du destinataire avec le nouveaux solde
                           con.query('UPDATE accounts SET solde=? WHERE account=?', [values,values2] , function(err, rows) {
