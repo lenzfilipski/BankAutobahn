@@ -43,7 +43,7 @@
         <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Se connecter</button>
       </form>
       <div class="text-center mt-3">
-        <a href="creaccount.php">Pas de compte? En Crér un.</a>
+        <a href="creaccount.php">Pas de compte? En Créer un.</a>
       </div>
 
     </div> <!-- /container -->

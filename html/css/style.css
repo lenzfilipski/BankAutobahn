@@ -119,23 +119,28 @@ body {
 .header {
   position: relative;
   background-color: var(--primary-color);
-  height: 400px;
+  height: 500px;
   color: var(--on-primary-color);
   box-shadow: 0 -0.325rem 0.25rem rgba(0, 0, 0, 0.075) inset;
   overflow: hidden;
+  background-image: url('../media/highway.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 .title {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  width: 850px;
-  color: var(--on-primary-color);
+  width: 350px;
+  color: var(--on-secondary-color);
   font-size: 40px;
   text-align: center;
   letter-spacing: normal;
   z-index: 3;
+  background-color: var(--secondary-color);
 
   animation: homeTitle 5s;
 }
@@ -149,9 +154,10 @@ body {
   100% { letter-spacing: normal; opacity: 1;}
 }
 @keyframes homeTitle {
-  0% { letter-spacing: 30px; opacity: 0;}
-  100% { letter-spacing: normal; opacity: 1;}
+  0% { width: 850px; letter-spacing: 30px; opacity: 0;}
+  100% { width: 350px; letter-spacing: normal; opacity: 1;}
 }
+
 
 /*-- Compte ---*/
 .header-espacperso {
