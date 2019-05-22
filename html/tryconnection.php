@@ -13,16 +13,13 @@
   <body>
     <?php
 
-      echo $_POST['inputId'];
-      echo $_POST['inputPassword'] . '<br>';
+      echo "Vous allez être redirigé.";
 
       if (isset($_POST['inputId'], $_POST['inputPassword'])) {
-        echo "OK!";
         $_SESSION['id'] = $_POST['inputId'];
         $_SESSION['pw'] = $_POST['inputPassword'];
         $testInput = preg_replace('/[^0-9]/', '', $_POST['inputId']);
         if (strlen($testInput) == 10 && $_POST['inputId'] == $testInput)   {
-          echo "iwork<br>";
 
     ?>
 
