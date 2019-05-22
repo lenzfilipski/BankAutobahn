@@ -1,4 +1,3 @@
-
 //Importe les paquet
 const fs = require('fs');
 const https = require('https');
@@ -17,6 +16,8 @@ var values = [[]];
 
 var mysql = require('mysql'); //Importe MySQL
 var WebSocket = require('ws'); // Importe WebSocket
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 //Démare le serveur sur le port 4445
 var serv1 = new WebSocket.Server({ server });
@@ -27,7 +28,7 @@ serv1.on('connection', function(ws) {
   console.log('connected');
 
   //Évènement à la réception de nouveaux message
-  ws.on('message', function(message_str) {
+  ws.on('message', async function(message_str) {
 
     //On récupère le message et on sépare l'identifiant du contenu du message
     var message = message_str;
@@ -65,17 +66,25 @@ serv1.on('connection', function(ws) {
 
               //Si c'est bon on autorise la connection sinon on la refuse
               if (!err && rows.length !== 0){
-                if (pw == rows[0].password){
-                  ws.send("coreok");
-                  conect = true;
-                  identifiant = iden;
-                }
-                else
-                  ws.send("coreno");
+                // Hash et compare le mot de passe rentre et le compare a celui de la BDD
+                bcrypt.compare(pw, rows[0].password, function(err, res) {
+                  if (res){
+                    ws.send("coreok");
+                    conect = true;
+                    identifiant = iden;
+                  }
+                  else
+                  {
+                    ws.send("coreno");
+                  }
+                });
               }
               else
+              {
                 ws.send("coreno");
+              }
               });
+
             con.end();
             break;
 
@@ -108,15 +117,21 @@ serv1.on('connection', function(ws) {
 
               //Si ils corresponde on autorise la connection et on connecte le client
               if (!err  && rows.length !== 0){
-                if (pw == rows[0].password){
-                  ws.send("coreok");
-                }
-                else
-                  ws.send("coreno");
+                  // Hash et compare le mot de passe rentre et le compare a celui de la BDD
+                  bcrypt.compare(pw, rows[0].password, function(err, res) {
+                    if (res){
+                      ws.send("coreok");
+                    }
+                    else
+                    {
+                      ws.send("coreno");
+                  }
+                });
               }
               else
                 ws.send("coreno");
               });
+
             con.end();
             break;
 
@@ -143,15 +158,15 @@ serv1.on('connection', function(ws) {
               lastidi += 1;
               newidi = maxidi - lastidi;
 
+
+
               console.log(newidi);
               //On renvois l'id généré au client
               ws.send("newi" + newidi);
 
             });
 
-
-
-
+            con.end();
             break;
 
             //On créer un nouveaux compte
@@ -169,19 +184,22 @@ serv1.on('connection', function(ws) {
               password: '1234',
               database: 'TEST'
             });
+            // hash le mot de pass de l'utilisateur pour etre stocke dans la BDD
+            let newHash = bcrypt.hashSync(pw, saltRounds);
+              //On connecte le serveur a la base de données
+              con.connect(function(err){
+                if (err) { console.log(err);}
+                console.log("Connected to DB!");
+              });
+                //On récupère l'identifiant et le mot de passe
+                values = [[iden, newHash]];
+                //On ajoute à la base de données le nouveax compte utilisateur avec son id et son mot de passe
+                con.query("INSERT INTO users (account, password) VALUES ?", [values], function(err, rows) {
+                  if (err) { console.log(err);};
+                });
 
-            //On connecte le serveur a la base de données
-            con.connect(function(err){
-              if (err) throw err;
-              console.log("Connected!");
-            });
 
-            //On récupère l'identifiant et le mot de passe
-		        values = [[iden, pw]];
-            //On ajoute à la base de données le nouveax compte utilisateur avec son id et son mot de passe
-            con.query("INSERT INTO users (account, password) VALUES ?", [values], function(err, rows) {
-              if (err) throw err
-            });
+
 
             //On ajoute à la base de données le compte au compte utilisateur
 		        values = [[iden, 420]];
@@ -286,7 +304,7 @@ serv1.on('connection', function(ws) {
                       values = [[destinataire]];
                       con.query('SELECT solde FROM accounts WHERE account=?', [values] , function(err, rows) {
                         //Si le compte n'existe pas on refuse sinon on met a jours l'argent des deux compte
-                        if (err) {
+                        if (err || identifiant == destinataire) {
                           status = false;
                           ws.send("vicono");
                         }
